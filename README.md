@@ -1,9 +1,9 @@
 # Module 17- Matching a URL using Regex
 
 ## <br><b><u>What is a Regex?</u></b>
-A regular expression (also called Regex or Regexp) is a way to describe a pattern. It is used to locate or validate specific strings or patterns of text in a sentence, document, or any other character input.
+      A regular expression (also called Regex or Regexp) is a way to describe a pattern. It is used to locate or validate specific strings or patterns of text in a sentence, document, or any other character input.
 
-Regular expressions use both basic and special characters. Basic characters are standard letters, numbers, and general keyboard characters, while all other characters are considered special.
+      Regular expressions use both basic and special characters. Basic characters are standard letters, numbers, and general keyboard characters, while all other characters are considered special.
 
 ## Table of Contents
 
@@ -39,6 +39,17 @@ Regular expressions use both basic and special characters. Basic characters are 
    Greedy and Lazy quantifiers are self explanitory. Greedy takes more data. Lazy takes the least.
 
       ([\da-z\.-]+)       The "+" operator is greedy as it allows character matching from one to an infinite amount of times.
+
+# <br><b><u>Regex Details Basics:</u></b>
+
+1.       /^: This is the start of the regex. The ^ character indicates that the pattern should match the beginning of the string. This is standard across all of Regex usage.
+2.       (https?:\/\/)?: This is an optional portion that matches http or https.
+3.       ([\da-z\.-]+): This is where we match the domain name. The requestor must match all fields if indicated in this portion.
+4.       .([a-z.]{2,6}): This is the TLD (top level domain).
+5.       ([\/\w \.-]*)*: An optional field for subdirectories, these are indicated by the forward slashes.
+6.       \/?$/: This is the end of the Regex data requirement, indicated by the $ sign.
+
+
 
 ### <br><b><u>Conclusion</u></b>
 
