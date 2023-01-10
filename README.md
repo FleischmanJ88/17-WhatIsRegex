@@ -1,60 +1,44 @@
-# Regex Tutorial Starter Code
-
-## <br>Module 17- We will be reading a tutorial that will help explain how: If the Regex /[Hh]ello|[Hh]i|[Hh]ey/ is used on the string “Hello, Hi there”, it will only match “Hello” by default.
+# Module 17- Matching a URL using Regex
 
 ## <br><b><u>What is a Regex?</u></b>
 A regular expression (also called Regex or Regexp) is a way to describe a pattern. It is used to locate or validate specific strings or patterns of text in a sentence, document, or any other character input.
 
 Regular expressions use both basic and special characters. Basic characters are standard letters, numbers, and general keyboard characters, while all other characters are considered special.
 
-### <br><b><u>Here is a list of all quantifiers:</u></b>
+## Table of Contents
 
-    a|b– Match either “a” or “b
-    ? – Zero or one
-    + – one or more
-    * – zero or more
-    {N} – Exactly N number of times (where N is a number)
-    {N,} – N or more number of times (where N is a number)
-    {N,M} – Between N and M number of times (where N and M are numbers and N < M)
-    *? – Zero or more, but stop after first match
+♠[Pattern](#we-will-be-using-the-following-search-pattern-to-match-a-url)<br>
+♠[Formal usage](#a-standard-list-for-traditional-formal-usage-is-below)<br>
+♠[Grouping](#grouping)<br>
+♠[Quantification](#quantification)<br>
+♠[Greedy & Lazy](#greedy--lazy-explanation)<br>
+♠[Conclusion](#conclusion)<br>
 
-### <br><b><u>Here’s a list of the most common pattern collections:</u></b>
+## We will be using the following search pattern to match a URL:
 
-    [A-Z]– Match any uppercase character from “A” to “Z”
-    [a-z]– Match any lowercase character from “a” to “z”
-    [0-9] – Match any number
-    [asdf]– Match any character that’s either “a”, “s”, “d”, or “f”
-    [^asdf]– Match any character that’s not any of the following: “a”, “s”, “d”, or “f”
+    /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 
-### <br><b><u>You can even combine these together:</u></b>
+### <br><b><u>A standard list for traditional formal usage is below:</u></b>
 
-    [0-9A-Z]– Match any character that’s either a number or a capital letter from “A” to “Z”
-    [^a-z] – Match any non-lowercase letter
-    General tokens
+      Boolean "or"
+      A vertical bar separates alternatives. For example, gray|grey can match "gray" or "grey".
+### Grouping
+      Parentheses are used to define the scope and precedence of the operators (among other uses). For example, gray|grey and gr(a|e)y are equivalent patterns which both describe the set of "gray" or "grey".
+###  Quantification
+      A quantifier after an element (such as a token, character, or group) specifies how many times the preceding element is allowed to repeat. The most common quantifiers are the question mark ?, the asterisk * (derived from the Kleene star), and the plus sign + (Kleene plus).
+      ?	The question mark indicates zero or one occurrences of the preceding element. For example, colou?r matches both "color" and "colour".
+      *	The asterisk indicates zero or more occurrences of the preceding element. For example, ab*c matches "ac", "abc", "abbc", "abbbc", and so on.
+      +	The plus sign indicates one or more occurrences of the preceding element. For example, ab+c matches "abc", "abbc", "abbbc", and so on, but not "ac".
+      {n}[26]	The preceding item is matched exactly n times.
+      {min,}[26]	The preceding item is matched min or more times.
+      {,max}[26]	The preceding item is matched up to max times.
+      {min,max}[26]	The preceding item is matched at least min times, but not more than max times.
 
+# <br><b><u>Greedy & Lazy explanation:</u></b>
 
-# <br><b><u>Breakdown of the Regex:</u></b>
+   Greedy and Lazy quantifiers are self explanitory. Greedy takes more data. Lazy takes the least.
 
-A Regex flag is a modifier to an existing Regex. These flags are always appended after the last forward slash in a Regex definition. 
-
-Here is a short list of some of the flags available:
-
-g – Global, match more than once
-m – Force $ and ^ to match each newline individually
-i – Make the Regex case insensitive
-This means that we could rewrite the following Regex:
-
-/[Hh]ello|[Hh]i|[Hh]ey/
-To use the case insensitive flag instead:
-
-/Hello|Hi|Hey/i
-With this flag, this Regex will now match:
-
-Hello
-HEY
-Hi
-HeLLo
-Or any other case-modified variant.
+      ([\da-z\.-]+)       The "+" operator is greedy as it allows character matching from one to an infinite amount of times.
 
 ### <br><b><u>Conclusion</u></b>
 
